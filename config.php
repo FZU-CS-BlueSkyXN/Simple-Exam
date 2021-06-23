@@ -4,10 +4,10 @@
 // $basepass=""; //mysql密码
 // $database="waddt"; //mysql数据库名称
 
- $hostname="mysql"; //mysql地址
+ $hostname="localhost"; //mysql地址
  $basename="root"; //mysql用户名
  $basepass="123456"; //mysql密码
- $database="wadt"; //mysql数据库名称
+ $database="exam"; //mysql数据库名称
 
  $v_question_count = 20; //总题目数
  $v_question_select_num =3; //在答题活动中一共有多少道题目
