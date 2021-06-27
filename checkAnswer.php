@@ -1,5 +1,4 @@
 <?php
-include_once("360_safe3.php");
 include_once ("config.php");
 
 if (isset($_POST['data'])) {

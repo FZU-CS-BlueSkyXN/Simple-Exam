@@ -18,7 +18,7 @@
 		</style>
 		<style type="text/css">
 			.bodyBackgrount {
-				background: url(images/background2.jpeg) no-repeat;
+				background: url(https://p.pstatp.com/origin/pgc-image/b2ca51dc09314380b64875e434eacbfb) no-repeat;
 				background-size: auto;
 				filter: alpha(opacity=90);
 				-moz-opacity: 0.9;
@@ -33,19 +33,7 @@
 			<div class="mui-content-padded" id="info">
 				<p>恭喜你，全部回答正确了。<span id="xlh"></span></p>
 			</div>
-			<form class="mui-input-group">
-				<div class="mui-input-row">
-					<label>姓名</label>
-					<input id='name' type="text" class="mui-input-clear mui-input" placeholder="请输入姓名">
-				</div>
-				<div class="mui-input-row">
-					<label>手机</label>
-					<input id='phone' type="text" class="mui-input-clear mui-input" placeholder="请输入手机号码">
-				</div>
-			</form>
-			<div class="mui-content-padded">
-				<button id="kaishidati" onclick="getFlows();" type="button" class="mui-btn mui-btn-success mui-btn-block" style="padding: 5px;background-color:#9dbd85;border-color:#9dbd85;">领取</button>
-			</div>
+
 			<div id="loading"></div>
 		</div>
 
@@ -60,49 +48,9 @@
 			</div>
 		</div>
 
-		<div class="mui-content" id="fenxiang" style="display: none;">
-			<div class="mui-content-padded" id="fenxianginfo">
-			</div>
-			<div class="mui-content-padded">
-				<button id="kaishidati" onclick="" type="button" class="mui-btn mui-btn-success mui-btn-block" style="padding: 5px;background-color:#9dbd85;border-color:#9dbd85;">分享</button>
-			</div>
-		</div>
-		<div class="mui-content-padded">
-			<div class="bdsharebuttonbox" data-tag="share_1">
-				<a href="#" class="bds_more" data-cmd="more"></a>
-				<a class="bds_weixin" data-cmd="weixin"></a>
-				<a class="bds_qzone" data-cmd="qzone" href="#"></a>
-				<a class="bds_tsina" data-cmd="tsina"></a>
-				<a class="bds_tqq" data-cmd="tqq"></a>
-			</div>
-		</div>
-		
-		
-		<script>
-			window._bd_share_config = {
-				common: {
-					bdText: '网络安全周有奖答题，全部正确获得500M流量，快来答题吧。',
-					bdDesc: '网络安全周有奖答题活动',
-					bdUrl: 'http://dt.shxca.gov.cn',
-					bdPic: 'http://dt.shxca.gov.cn/images/first.png'
-				},
-				share: [{
-					"bdSize": 32
-				}],
-				image: [{
-					viewType: 'collection',
-					viewPos: 'top',
-					viewColor: 'black',
-					viewSize: '32',
-					viewList: ['qzone', 'tsina', 'tqq','weixin'],
-					
-				}],
-				selectShare: [{
-					"bdselectMiniList": ['qzone', 'tqq', 'kaixin001', 'bdxc', 'tqf']
-				}]
-			}
-			with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
-		</script>
+
+
+
 
 		<script src="js/mui.min.js"></script>
 
@@ -126,54 +74,7 @@
 				}
 			});
 
-			function getFlows() {
-				var nameStr = document.getElementById("name").value;
-				if (nameStr == '') {
-					mui.toast("请输入姓名。");
-					return;
-				}
-				var phoneStr = document.getElementById("phone").value;
-				if (phoneStr == '') {
-					mui.toast("请输入手机号码。");
-					return;
-				}
-				if (phoneStr.length != 11) {
-					mui.toast("手机号码位数不正确，请重新填写11位号码。");
-					return;
-				}
-				var xlh = stripscript(location.hash);
-				xlh = xlh.substr(0, xlh.length);
-				xlh = xlh.split("&");
-				xlhStr = xlh[1];
-				// loading 
-				document.getElementById("loading").innerHTML = loadingDiv();
-				mui.ajax('getFlows.php', {
-					data: {
-						name: nameStr,
-						phone: phoneStr,
-						xlh: xlhStr
-					},
-					dataType: 'json', //服务器返回json格式数据
-					type: 'post', //HTTP请求类型
-					timeout: 10000, //超时时间设置为10秒；
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded'
-					},
-					success: function(data) {
-						//服务器返回响应，根据响应结果，分析是否登录成功；
-						// console.log(data);
-						document.getElementById("fenxiang").style.display = "";
-						document.getElementById("dadui").style.display = "none";
-						document.getElementById("fenxianginfo").innerHTML = "<p>" + data["message"] + "</p>";
-						document.getElementById("loading").innerHTML = "";
-					},
-					error: function(xhr, type, errorThrown) {
-						//异常处理；
-						// console.log(type);
-						document.getElementById("loading").innerHTML = "";
-					}
-				});
-			}
+
 
 			function stripscript(s) {
 				var pattern = new RegExp("[%`~!@#$^*()=|{}':;',\\[\\].<>/?~！@#￥……*——| {}‘；']") //格式 RegExp("[在中间定义特殊过滤字符]")
