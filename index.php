@@ -72,8 +72,8 @@ function isMobile()
     return false;
 }
 if(isMobile()){
-	header("Location: phone.html"); 
+	header("Location: exam.html"); //移动
 }else{
-	header("Location: pc.html");
+	header("Location: exam.html"); //桌面
 }
 ?>

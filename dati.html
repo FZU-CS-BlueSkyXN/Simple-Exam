@@ -17,16 +17,44 @@
 			}
 		</style>
 		<style type="text/css">
-			/*.bodyBackgrount {
-				background: url(images/background2.jpeg) no-repeat;
-				background-size: auto;
-				filter: alpha(opacity=90);
-				-moz-opacity: 0.9;
-				-khtml-opacity: 0.9;
-				opacity: 0.9;
-			}*/
-			.myinput{
-
+			.login-btn {
+            width: 100%;
+            height: 46px;
+            color: #fff;
+            font-size: 16px;
+            margin-top: 30px;
+            outline: 0 none;
+            border: solid 1px #0ae;
+            border-radius: 3px;
+            text-align: center;
+            background-color: #0ae;
+			}
+			.main {
+				width: 370px;
+				height: 380px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				box-sizing: border-box;
+				padding: 25px 30px;
+				margin-left: -185px;
+				margin-top: -190px;
+				border-radius: 5px;
+			}
+			.main > h1 {
+				color: #333;
+				font-size: 24px;
+				font-weight: lighter;
+				text-align: center;
+			}
+			.main > h2 {
+				color: #333;
+				font-size: 16px;
+				font-weight: lighter;
+				text-align: center;
+			}
+			p{
+				text-align:center;
 			}
 		</style>
 	</head>
@@ -142,21 +170,21 @@
 					html += " style=\"display:none;\"";
 				}
 				html += ">";
-				html += "<button id=\"previousbtn\" onclick=\"setPreviousQuestionToDiv();\" type=\"button\" class=\"mui-btn mui-btn-success mui-btn-block\" style=\"padding: 5px;background-color:#9dbd85;border-color:#9dbd85;\">上一题</button>";
+				html += "<button id=\"previousbtn\" onclick=\"setPreviousQuestionToDiv();\" type=\"button\" class=\"login-btn\">上一题</button>";
 				html += "</div>";
 				html += "<div class=\"mui-content-padded\"";
 				if (currentQuestionIndex == questionsLength - 1) {
 					html += " style=\"display:none;\"";
 				}
 				html += ">";
-				html += "<button id=\"nextbtn\" onclick=\"setNextQuestionToDiv();\" type=\"button\" class=\"mui-btn mui-btn-success mui-btn-block\" style=\"padding: 5px;background-color:#9dbd85;border-color:#9dbd85;\">下一题</button>";
+				html += "<button id=\"nextbtn\" onclick=\"setNextQuestionToDiv();\" type=\"button\" class=\"login-btn\">下一题</button>";
 				html += "</div>";
 				html += "<div class=\"mui-content-padded\"";
 				if (currentQuestionIndex != questionsLength - 1) {
 					html += " style=\"display:none;\"";
 				}
 				html += ">";
-				html += "<button id=\"kaishidati\" onclick=\"submitAnswers();\" type=\"button\" class=\"mui-btn mui-btn-success mui-btn-block\" style=\"padding: 5px;background-color:#9dbd85;border-color:#9dbd85;\">提交答案</button>";
+				html += "<button id=\"kaishidati\" onclick=\"submitAnswers();\" type=\"button\" class=\"login-btn\">提交答案</button>";
 				html += "</div>";
 				return html;
 			}
@@ -285,21 +313,21 @@
 					html += " style=\"display:none;\"";
 				}
 				html += ">";
-				html += "<button id=\"previousbtn\" onclick=\"setPreviousQuestionToDiv();\" type=\"button\" class=\"mui-btn mui-btn-success mui-btn-block\" style=\"padding: 5px;background-color:#9dbd85;border-color:#9dbd85;\">上一题</button>";
+				html += "<button id=\"previousbtn\" onclick=\"setPreviousQuestionToDiv();\" type=\"button\" class=\"login-btn\">上一题</button>";
 				html += "</div>";
 				html += "<div class=\"mui-content-padded\"";
 				if (currentQuestionIndex == questionsLength - 1) {
 					html += " style=\"display:none;\"";
 				}
 				html += ">";
-				html += "<button id=\"nextbtn\" onclick=\"setNextQuestionToDiv();\" type=\"button\" class=\"mui-btn mui-btn-success mui-btn-block\" style=\"padding: 5px;background-color:#9dbd85;border-color:#9dbd85;\">下一题</button>";
+				html += "<button id=\"nextbtn\" onclick=\"setNextQuestionToDiv();\" type=\"button\" class=\"login-btn\">下一题</button>";
 				html += "</div>";
 				html += "<div class=\"mui-content-padded\"";
 				if (currentQuestionIndex != questionsLength - 1) {
 					html += " style=\"display:none;\"";
 				}
 				html += ">";
-				html += "<button id=\"kaishidati\" onclick=\"submitAnswers();\" type=\"button\" class=\"mui-btn mui-btn-success mui-btn-block\" style=\"padding: 5px;background-color:#9dbd85;border-color:#9dbd85;\">提交答案</button>";
+				html += "<button id=\"kaishidati\" onclick=\"submitAnswers();\" type=\"button\" class=\"login-btn\">提交答案</button>";
 				html += "</div>";
 				return html;
 			}
