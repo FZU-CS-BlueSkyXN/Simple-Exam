@@ -1,5 +1,4 @@
 <?php
-include_once("360_safe3.php");
 include_once ("config.php");
 
 $questionIdArray = getRandomQuestionId($v_question_count, $v_question_select_num);
@@ -63,12 +62,4 @@ function getQuestionJson($questionIdStr) {
 	return $questionsJson;
 }
 
-// 测试代码
-//$questions = array();
-//for ($x = 0; $x < 2; $x++) {
-//	$question = array("id" => $x, "content" => "题目内容题目内容题目内容题目内容" . rand(100000, 20000), "answer1" => rand(1, 4), "answer2" => rand(1, 4), "answer3" => rand(1, 4), "answer4" => rand(1, 4), "answer5" => rand(1, 4), "answer6" => rand(1, 4), "answer7" => rand(1, 4), "isMult" => rand(0, 1));
-//	$questions[$x] = $question;
-//}
-//$jsdata = json_encode($questions);
-//echo $jsdata;
 ?>
