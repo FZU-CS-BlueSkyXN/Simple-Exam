@@ -31,34 +31,35 @@ function arrayToStr($questionIdArray) {
 
 // 获取问题的详细数据，返回json格式
 function getQuestionJson($questionIdStr) {
-	$sql = "select * from questions where id in (" . $questionIdStr . ")";
-	$result = mysql_query($sql);
-	$num = mysql_num_rows($result);
+	//echo $questionIdStr."<br>";
+	$sql = "select * from questions where id in (" . $questionIdStr . ");";
+	//echo $sql."<br>";
+	$result = $GLOBALS['conn']->query($sql);
+	//echo "??";
+	$num = $result->rowCount();
 	if ($num == 0) {
 		echo "网络错误！";
-		mysql_close();
+		$conn = null;
 	}
 	$tmpId = 0;
 	$questionsArray = Array();
-	while ($rs = mysql_fetch_object($result)) {
+	while ($rs = $result->fetch()) {
 		$question = new StdClass;
-		$question -> id = $rs -> id;
-		$question -> content = $rs -> content;
-		$question -> answer1 = $rs -> answer1;
-		$question -> answer2 = $rs -> answer2;
-		$question -> answer3 = $rs -> answer3;
-		$question -> answer4 = $rs -> answer4;
-		$question -> answer5 = $rs -> answer5;
-		$question -> answer6 = $rs -> answer6;
-		$question -> answer7 = $rs -> answer7;
-		$question -> answer8 = $rs -> answer8;
-		$question -> isMult = $rs -> isMult;
+		$question -> id = $rs["id"];
+		$question -> content = $rs["content"];
+		$question -> answer1 = $rs["answer1"];
+		$question -> answer2 = $rs["answer2"];
+		$question -> answer3 = $rs["answer3"];
+		$question -> answer4 = $rs["answer4"];
+		$question -> answer5 = $rs["answer5"];
+		$question -> answer6 = $rs["answer6"];
+		$question -> answer7 = $rs["answer7"];
+		$question -> answer8 = $rs["answer8"];
 		$questionsArray[$tmpId] = $question;
 		$tmpId++;
 	}
 	$questionsJson = json_encode($questionsArray);
-	mysql_free_result($result);
-	mysql_close();
+	$GLOBALS['conn'] = null;
 	return $questionsJson;
 }
 

@@ -102,7 +102,7 @@
 
 		<div class="mui-content" id="imageDiv">
 			<div class="mui-content-padded">
-				<p>2. 此次答题共10道题目</p>
+				<p>2. 此次答题题库共10道题目</p>
 			</div>
 		</div>
 
@@ -434,6 +434,7 @@
 						},
 						error: function(xhr, type, errorThrown) {
 							//异常处理；
+							console.log("??");
 							console.log(type);
 							mui.toast(type);
 						}

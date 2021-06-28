@@ -31,7 +31,7 @@
 	<body class="">
 		<div class="mui-content" id="dadui" style="display: none;">
 			<div class="mui-content-padded" id="info">
-				<p>恭喜你，全部回答正确了。<span id="xlh"></span></p>
+				<p><span id="xlh"></span></p>
 			</div>
 
 			<div id="loading"></div>
@@ -39,7 +39,7 @@
 
 		<div class="mui-content" id="dacuo" style="display: none;">
 			<div class="mui-content-padded" id="dacuoinfo">
-				<p>真可惜，没有全部正确，再答一次吧。</p>
+				<p></p>
 			</div>
 			<div class="mui-content-padded" id="dacuomessage">
 			</div>
@@ -64,11 +64,11 @@
 				xlh = xlh.substr(1, xlh.length);
 				xlh = xlh.split("&");
 				if (xlh[0] == 1) {
-					document.getElementById("xlh").innerHTML = "序列号为：" + xlh[1] + "。";
+					document.getElementById("xlh").innerHTML = xlh[1];
 					document.getElementById("dadui").style.display = "";
 				} else {
-					xlh[1] = stripscript(decodeURI(xlh[1]));
-					xlh[1] = xlh[1].replace(new RegExp(/br/g),"<br/>");
+					xlh[1] = decodeURI(xlh[1]);
+					/*xlh[1] = xlh[1].replace(new RegExp(/br/g),"<br/>");*/
 					document.getElementById("dacuomessage").innerHTML = "<p>" + xlh[1] + "<p/>";
 					document.getElementById("dacuo").style.display = "";
 				}
