@@ -1,4 +1,3 @@
 <?php
-header("Location: exam.html");
-
+	header("Location: exam.html");
 ?>

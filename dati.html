@@ -61,37 +61,7 @@
 
 	<body style="background: transparent;">
 		<div class="mui-content" id="questionCardDiv">
-			<!--
-			<div class="mui-content-padded"></div>
-			<div class="mui-card">
-				<div class="mui-table-view-cell mui-collapse mui-active">
-					<a class="mui-navigate-right">题目1</a>
-					<div class="mui-collapse-content">
-						<h4>
-						题目描述题目描述题目描述题目描述题目描述题目描述题目描述题目描述
-						</h4>
-						<div class="mui-content-padded"></div>
-						<div class="mui-input-group">
-							<div class="mui-input-row mui-radio">
-								<label>radio</label>
-								<input name="radio1" type="radio">
-							</div>
-							<div class="mui-input-row mui-radio">
-								<label>radio</label>
-								<input name="radio1" type="radio">
-							</div>
-							<div class="mui-input-row mui-radio">
-								<label>disabled radio</label>
-								<input name="radio1" type="radio">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="mui-content-padded">
-				<button id="kaishidati" onclick="submitAnswers();" type="button" class="mui-btn mui-btn-success mui-btn-block" style="padding: 5px;background-color:#9dbd85;border-color:#9dbd85;">提交答案</button>
-			</div>
-			-->
+
 			<div class="mui-content-padded" style="text-align:center">
 				<p>&nbsp;</p>
 				<img src="images/loading3.gif" />
@@ -102,7 +72,7 @@
 
 		<div class="mui-content" id="imageDiv">
 			<div class="mui-content-padded">
-				<p>2. 此次答题题库共10道题目</p>
+				<p>此次答题题库共10道题目</p>
 			</div>
 		</div>
 
@@ -122,6 +92,7 @@
 				html += "</div>";
 				return html;
 			}
+			//生成题目html
 			function getQuestionHTML2() {
 				var html = "";
 				html += "<div class=\"mui-content-padded\"></div>";
@@ -188,7 +159,7 @@
 				html += "</div>";
 				return html;
 			}
-			// 生成题目html
+			// 生成第一题的html
 			function getQuestionHTML() {
 				var html = "";
 				html += "<div class=\"mui-content-padded\"></div>";
@@ -434,16 +405,12 @@
 						},
 						error: function(xhr, type, errorThrown) {
 							//异常处理；
-							console.log("??");
 							console.log(type);
 							mui.toast(type);
 						}
 					});
 				}
 			}
-		</script>
-
-		<script>
 		</script>
 	</body>
 

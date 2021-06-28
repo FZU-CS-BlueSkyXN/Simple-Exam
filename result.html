@@ -29,61 +29,29 @@
 	</head>
 
 	<body class="">
-		<div class="mui-content" id="dadui" style="display: none;">
-			<div class="mui-content-padded" id="info">
-				<p><span id="xlh"></span></p>
-			</div>
-
-			<div id="loading"></div>
-		</div>
-
-		<div class="mui-content" id="dacuo" style="display: none;">
-			<div class="mui-content-padded" id="dacuoinfo">
+		<div class="mui-content" id="resultclass" style="display: none;">
+			<div class="mui-content-padded" id="resultinfo">
 				<p></p>
 			</div>
-			<div class="mui-content-padded" id="dacuomessage">
+			<div class="mui-content-padded" id="resultmessage">
 			</div>
 			<div class="mui-content-padded">
 				<button id="kaishidati" onclick="window.location.href='dati.html'" type="button" class="mui-btn mui-btn-success mui-btn-block" style="padding: 5px;background-color:#9dbd85;border-color:#9dbd85;">开始答题</button>
 			</div>
 		</div>
 
-
-
-
-
 		<script src="js/mui.min.js"></script>
 
 		<script type="text/javascript" charset="utf-8">
 			// dom准备好后获取数据
 			mui.ready(function() {
-				// console.log(location.hash);
 				var xlh = location.hash;
-				// var xlh = stripscript(location.hash);
-				// console.log(xlh);
 				xlh = xlh.substr(1, xlh.length);
 				xlh = xlh.split("&");
-				if (xlh[0] == 1) {
-					document.getElementById("xlh").innerHTML = xlh[1];
-					document.getElementById("dadui").style.display = "";
-				} else {
-					xlh[1] = decodeURI(xlh[1]);
-					/*xlh[1] = xlh[1].replace(new RegExp(/br/g),"<br/>");*/
-					document.getElementById("dacuomessage").innerHTML = "<p>" + xlh[1] + "<p/>";
-					document.getElementById("dacuo").style.display = "";
-				}
+				xlh[1] = decodeURI(xlh[1]);
+				document.getElementById("resultmessage").innerHTML = "<p>" + xlh[1] + "<p/>";
+				document.getElementById("resultclass").style.display = "";
 			});
-
-
-
-			function stripscript(s) {
-				var pattern = new RegExp("[%`~!@#$^*()=|{}':;',\\[\\].<>/?~！@#￥……*——| {}‘；']") //格式 RegExp("[在中间定义特殊过滤字符]")
-				var rs = "";
-				for (var i = 0; i < s.length; i++) {
-					rs = rs + s.substr(i, 1).replace(pattern, '');
-				}
-				return rs;
-			}
 
 			// 继续loading
 			function loadingDiv() {
