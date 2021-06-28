@@ -59,13 +59,14 @@
 	</head>
 
 	<body class="">
-		<div class="mui-content" id="resultclass" style="display: none;">
-			<div class="mui-content-padded" id="resultinfo">
-				<p></p>
+		<div class="main">
+			<div class="mui-content" id="resultclass" style="display: none;">
+				<div class="mui-content-padded" id="resultinfo">
+					<p></p>
+				</div>
+				<div class="mui-content-padded" id="resultmessage">
+				</div>
 			</div>
-			<div class="mui-content-padded" id="resultmessage">
-			</div>
-
 			<div class="mui-content" id="dacuo" style="display: none;">
 				<div class="mui-content-padded" id="dacuoinfo">
 					<p></p>
@@ -86,9 +87,14 @@
 				var xlh = location.hash;
 				xlh = xlh.substr(1, xlh.length);
 				xlh = xlh.split("&");
-				xlh[1] = decodeURI(xlh[1]);
-				document.getElementById("resultmessage").innerHTML = "<p>" + xlh[1] + "<p/>";
-				document.getElementById("resultclass").style.display = "";
+				if (xlh[0] == 1) {
+					document.getElementById("xlh").innerHTML = xlh[1];
+					document.getElementById("dadui").style.display = "";
+				} else {
+					xlh[1] = decodeURI(xlh[1]);
+					document.getElementById("dacuomessage").innerHTML = "<p>" + xlh[1] + "<p/>";
+					document.getElementById("dacuo").style.display = "";
+				}
 			});
 
 			// 继续loading
