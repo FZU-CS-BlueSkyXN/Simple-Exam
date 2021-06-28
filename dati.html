@@ -157,7 +157,7 @@
     				html += "</div>";
     				return html;
     			}
-    			// 生成题目html
+    			// 生成第一题html
     			function getQuestionHTML() {
     				var html = "";
     				html += "<div class=\"mui-content-padded\"></div>";
@@ -400,16 +400,12 @@
     						},
     						error: function(xhr, type, errorThrown) {
     							//异常处理；
-    							console.log("??");
     							console.log(type);
     							mui.toast(type);
     						}
     					});
     				}
     			}
-    		</script>
-    
-    		<script>
     		</script>
     	</div>
 	</body>
