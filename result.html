@@ -11,43 +11,74 @@
 		<link rel="shortcut icon" href="images/logo.ico" />
 		<style type="text/css">
 			#list {
-				/*避免导航边框和列表背景边框重叠，看起来像两条边框似得；*/
 				margin-top: -1px;
 				margin-bottom: 0px;
 			}
 		</style>
 		<style type="text/css">
-			.bodyBackgrount {
-				background: url(https://p.pstatp.com/origin/pgc-image/b2ca51dc09314380b64875e434eacbfb) no-repeat;
-				background-size: auto;
-				filter: alpha(opacity=90);
-				-moz-opacity: 0.9;
-				-khtml-opacity: 0.9;
-				opacity: 0.9;
+			.login-btn {
+				width: 100%;
+				height: 46px;
+				color: #fff;
+				font-size: 16px;
+				margin-top: 30px;
+				outline: 0 none;
+				border: solid 1px #0ae;
+				border-radius: 3px;
+				text-align: center;
+				background-color: #0ae;
+			}
+			.main {
+				width: 370px;
+				height: 380px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				box-sizing: border-box;
+				padding: 25px 30px;
+				margin-left: -185px;
+				margin-top: -190px;
+				border-radius: 5px;
+			}
+			.main > h1 {
+				color: #333;
+				font-size: 24px;
+				font-weight: lighter;
+				text-align: center;
+			}
+			.main > h2 {
+				color: #333;
+				font-size: 16px;
+				font-weight: lighter;
+				text-align: center;
+			}
+			p{
+				text-align:center;
 			}
 		</style>
 	</head>
 
 	<body class="">
-		<div class="mui-content" id="dadui" style="display: none;">
-			<div class="mui-content-padded" id="info">
-				<p><span id="xlh"></span></p>
+		<div class="main">
+			<div class="mui-content" id="dadui" style="display: none;">
+				<div class="mui-content-padded" id="info">
+					<p><span id="xlh"></span></p>
+				</div>
+
+				<div id="loading"></div>
 			</div>
 
-			<div id="loading"></div>
+			<div class="mui-content" id="dacuo" style="display: none;">
+				<div class="mui-content-padded" id="dacuoinfo">
+					<p></p>
+				</div>
+				<div class="mui-content-padded" id="dacuomessage">
+				</div>
+				<div class="mui-content-padded">
+					<button id="kaishidati" onclick="window.location.href='dati.html'" type="button" class="mui-btn mui-btn-success mui-btn-block" style="padding: 5px;background-color:#0ae;border-color:#0ae;">重新答题</button>
+				</div>
+			</div>
 		</div>
-
-		<div class="mui-content" id="dacuo" style="display: none;">
-			<div class="mui-content-padded" id="dacuoinfo">
-				<p></p>
-			</div>
-			<div class="mui-content-padded" id="dacuomessage">
-			</div>
-			<div class="mui-content-padded">
-				<button id="kaishidati" onclick="window.location.href='dati.html'" type="button" class="mui-btn mui-btn-success mui-btn-block" style="padding: 5px;background-color:#9dbd85;border-color:#9dbd85;">开始答题</button>
-			</div>
-		</div>
-
 
 
 
@@ -57,10 +88,7 @@
 		<script type="text/javascript" charset="utf-8">
 			// dom准备好后获取数据
 			mui.ready(function() {
-				// console.log(location.hash);
 				var xlh = location.hash;
-				// var xlh = stripscript(location.hash);
-				// console.log(xlh);
 				xlh = xlh.substr(1, xlh.length);
 				xlh = xlh.split("&");
 				if (xlh[0] == 1) {
@@ -68,7 +96,6 @@
 					document.getElementById("dadui").style.display = "";
 				} else {
 					xlh[1] = decodeURI(xlh[1]);
-					/*xlh[1] = xlh[1].replace(new RegExp(/br/g),"<br/>");*/
 					document.getElementById("dacuomessage").innerHTML = "<p>" + xlh[1] + "<p/>";
 					document.getElementById("dacuo").style.display = "";
 				}
